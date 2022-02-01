@@ -1,0 +1,3 @@
+const TrashButton = () => {
+  return <FaTrashRestoreAlt />;
+};
