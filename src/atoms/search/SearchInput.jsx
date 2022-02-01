@@ -3,8 +3,13 @@ import { Search2Icon } from "@chakra-ui/icons";
 
 const SearchInput = () => {
   return (
-    <InputGroup>
-      <Input type="tel" placeholder="Phone number" />
+    <InputGroup bg="blue.500" borderRadius="3px">
+      <Input
+        type="tel"
+        placeholder="Phone number"
+        border="none"
+        fontSize=".9rem"
+      />
       <InputRightElement
         pointerEvents="none"
         children={<Search2Icon color="gray.300" />}

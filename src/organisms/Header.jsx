@@ -1,4 +1,5 @@
 import { Box, Container, Text, HStack } from "@chakra-ui/react";
+import SearchForm from "../molucules/SearchForm";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
             <Text fontSize="1.5rem" fontWeight="bold">
               Todo app
             </Text>
+            <SearchForm />
             <Text fontSize=".9rem">2022/01/01</Text>
           </HStack>
         </Container>
