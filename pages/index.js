@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Title from '../src/atoms/text/Title'
 import Header from '../src/organisms/Header'
 import styles from '../styles/Home.module.css'
 
@@ -14,6 +15,7 @@ export default function Home() {
 
       <main>
         <Header />
+        <Title children={"Todo List"} />
       </main>
 
       <footer className={styles.footer}>
