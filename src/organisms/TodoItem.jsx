@@ -1,5 +1,6 @@
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, Tag } from "@chakra-ui/react";
 import DeleteButton from "../atoms/button/DeleteButton";
+import TagWrapper from "../molucules/TagWrapper";
 
 const TodoItem = () => {
   return (
@@ -9,6 +10,8 @@ const TodoItem = () => {
       bg="red.100"
       minHeight="180px"
       position="relative"
+      borderRadius="3px"
+      boxShadow=" 2px 2px 4px rgba(0,0,0,.1)"
     >
       <Box position="absolute" right="-10px" top="-10px">
         <DeleteButton />
@@ -25,6 +28,7 @@ const TodoItem = () => {
       <Box fontSize=".8rem" maxHeight="300px" overflow="hidden">
         テキストテキストテキスト
       </Box>
+      <TagWrapper />
     </Box>
   );
 };

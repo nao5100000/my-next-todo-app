@@ -10,9 +10,9 @@ const SearchStatus = () => {
       borderRadius="3px"
       fontSize=".9rem"
     >
-      <option value="notStarted">Not Started</option>
-      <option value="doing">Doing</option>
-      <option value="done">Done</option>
+      <option value="notStarted">未着手</option>
+      <option value="doing">進行中</option>
+      <option value="done">完了</option>
     </Select>
   );
 };
