@@ -6,6 +6,7 @@ import Tag from "../src/atoms/tags/tag";
 import Title from "../src/atoms/text/Title";
 import SearchForm from "../src/molucules/SearchForm";
 import Header from "../src/organisms/Header";
+import TodoItem from "../src/organisms/TodoItem";
 
 const test = () => {
   return (
@@ -17,6 +18,7 @@ const test = () => {
       <Tag children={"時間"} />
       <TrashButton />
       <NewButton />
+      <TodoItem />
     </>
   );
 };
