@@ -1,8 +1,18 @@
 import { Text, Box } from "@chakra-ui/react";
+import DeleteButton from "../atoms/button/DeleteButton";
 
 const TodoItem = () => {
   return (
-    <Box w="30%" padding="20px" bg="red.100" minHeight="180px">
+    <Box
+      w="100%"
+      padding="20px"
+      bg="red.100"
+      minHeight="180px"
+      position="relative"
+    >
+      <Box position="absolute" right="-10px" top="-10px">
+        <DeleteButton />
+      </Box>
       <Text
         fontSize="1rem"
         fontWeight="600"
@@ -12,7 +22,7 @@ const TodoItem = () => {
       >
         ランディングページの作り方
       </Text>
-      <Box fontSize=".8rem" maxHeight="300px" overFlow="hidden">
+      <Box fontSize=".8rem" maxHeight="300px" overflow="hidden">
         テキストテキストテキスト
       </Box>
     </Box>

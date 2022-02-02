@@ -1,3 +1,4 @@
+import DeleteButton from "../src/atoms/button/DeleteButton";
 import NewButton from "../src/atoms/button/NewButton";
 import TrashButton from "../src/atoms/button/TrashButton";
 import RadioPriority from "../src/atoms/input/RadioPriority";
@@ -19,6 +20,7 @@ const test = () => {
       <TrashButton />
       <NewButton />
       <TodoItem />
+      <DeleteButton />
     </>
   );
 };

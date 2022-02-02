@@ -5,6 +5,7 @@ import Title from '../src/atoms/text/Title'
 import Header from '../src/organisms/Header'
 import TodoItem from '../src/organisms/TodoItem'
 import styles from '../styles/Home.module.css'
+import Masonry from 'react-masonry-css'
 
 export default function Home() {
   return (
@@ -19,7 +20,14 @@ export default function Home() {
         <Header />
         <Container maxWidth="960px">
           <Title children={"Todo List"} />
-          <TodoItem />
+          <Masonry
+            breakpointCols={3}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
+            {/* array of JSX items */}
+            <TodoItem />
+            <TodoItem />
+          </Masonry>
         </Container>
       </main>
 
