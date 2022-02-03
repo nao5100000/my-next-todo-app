@@ -1,10 +1,17 @@
-import { Box, Container, Text, HStack } from "@chakra-ui/react";
+import { Box, Container, Text, HStack, IconButton } from "@chakra-ui/react";
+import { BsFillHouseDoorFill } from "react-icons/bs";
 import SearchForm from "../molucules/SearchForm";
 
 const Header = () => {
   return (
     <>
-      <Box background="blue.400" position="fixed" width="100%" top="0">
+      <Box
+        background="blue.400"
+        position="fixed"
+        width="100%"
+        top="0"
+        zIndex="100"
+      >
         <Container maxWidth="1200px" width="90%">
           <HStack
             justify="space-between"
@@ -12,9 +19,17 @@ const Header = () => {
             height="60px"
             color="White"
           >
-            <Text fontSize="1.5rem" fontWeight="bold">
-              Todo app
-            </Text>
+            <Box display="flex" alignItems="center" justifyContent="flex-start">
+              <IconButton
+                colorScheme="transparant"
+                aria-label="Search database"
+                icon={<BsFillHouseDoorFill />}
+                fontSize="1.5rem"
+              />
+              <Text fontSize="1.5rem" fontWeight="bold" marginLeft="10px">
+                Todo app
+              </Text>
+            </Box>
             <SearchForm />
             <Text fontSize=".9rem">2022/01/01</Text>
           </HStack>

@@ -8,6 +8,7 @@ import DetailTextarea from "../src/molucules/input/DetailTextarea";
 import Title from "../src/atoms/text/Title";
 import RadioPriority from "../src/molucules/input/RadioPriority";
 import RadioSelectWrapper from "../src/organisms/RadioSelectWrapper";
+import DatePicker from "../src/molucules/DatePicker";
 
 const NewTodo = () => {
   return (
@@ -19,11 +20,12 @@ const NewTodo = () => {
       </Head>
       <main>
         <Header />
-        <Container maxWidth="800px" marginTop="100px">
+        <Container maxWidth="800px" marginTop="100px" marginBottom="90px">
           <Title children="New Todo" />
           <TitleInput />
           <DetailTextarea />
           <RadioSelectWrapper />
+          <DatePicker />
         </Container>
       </main>
       <footer className={styles.footer}>

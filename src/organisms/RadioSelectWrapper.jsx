@@ -4,7 +4,7 @@ import StatusSelect from "../molucules/input/StatusSelect";
 
 const RadioSelectWrapper = () => {
   return (
-    <HStack justify="space-between">
+    <HStack justify="space-between" marginBottom="30px">
       <RadioPriority />
       <StatusSelect />
     </HStack>
