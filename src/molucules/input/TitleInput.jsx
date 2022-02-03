@@ -4,14 +4,15 @@ import SubTitle from "../../atoms/text/SubTitle";
 const TitleInput = () => {
   return (
     <>
-      <Box padding="30px" bg="blue.50">
-        <SubTitle children={"Title"} />
+      <Box marginBottom="30px">
+        <SubTitle children="タイトル" />
         <Input
           placeholder="タイトルを入力してください"
           borderRadius="3px"
-          marginBottom="30px"
           height="58px"
           bg="White"
+          boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
+          bg="#f7f7f7"
         />
       </Box>
     </>

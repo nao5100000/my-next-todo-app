@@ -6,6 +6,8 @@ import { Container } from "@chakra-ui/react";
 import TitleInput from "../src/molucules/input/TitleInput";
 import DetailTextarea from "../src/molucules/input/DetailTextarea";
 import Title from "../src/atoms/text/Title";
+import RadioPriority from "../src/molucules/input/RadioPriority";
+import RadioSelectWrapper from "../src/organisms/RadioSelectWrapper";
 
 const NewTodo = () => {
   return (
@@ -21,6 +23,7 @@ const NewTodo = () => {
           <Title children="New Todo" />
           <TitleInput />
           <DetailTextarea />
+          <RadioSelectWrapper />
         </Container>
       </main>
       <footer className={styles.footer}>
