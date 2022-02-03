@@ -9,6 +9,7 @@ const SearchPriority = () => {
       bg="blue.500"
       borderRadius="3px"
       fontSize=".9rem"
+      boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
     >
       <option value="low">Low</option>
       <option value="middle">Middle</option>

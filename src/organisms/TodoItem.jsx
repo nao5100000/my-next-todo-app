@@ -10,7 +10,7 @@ const TodoItem = () => {
       bg="red.100"
       minHeight="180px"
       position="relative"
-      borderRadius="3px"
+      borderRadius="5px"
       boxShadow=" 2px 2px 4px rgba(0,0,0,.1)"
     >
       <Box position="absolute" right="-10px" top="-10px">

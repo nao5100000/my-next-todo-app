@@ -2,7 +2,7 @@ import DeleteButton from "../src/atoms/button/DeleteButton";
 import NewButton from "../src/atoms/button/NewButton";
 import TrashButton from "../src/atoms/button/TrashButton";
 import RadioPriority from "../src/atoms/input/RadioPriority";
-import TitleInput from "../src/atoms/input/TitleInput";
+import TitleInput from "../src/molucules/input/TitleInput";
 import DateTag from "../src/atoms/tags/DateTag";
 import Tag from "../src/atoms/tags/tag";
 import Title from "../src/atoms/text/Title";

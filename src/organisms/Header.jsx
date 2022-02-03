@@ -4,7 +4,7 @@ import SearchForm from "../molucules/SearchForm";
 const Header = () => {
   return (
     <>
-      <Box background="blue.400" position="fixed" width="100%">
+      <Box background="blue.400" position="fixed" width="100%" top="0">
         <Container maxWidth="1200px" width="90%">
           <HStack
             justify="space-between"

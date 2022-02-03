@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container, Flex } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../src/atoms/text/Title'
@@ -19,9 +19,11 @@ export default function Home() {
 
       <main>
         <Header />
-        <Container maxWidth="960px">
-          <Title children={"Todo List"} />
-          <ButtonWrapper />
+        <Container maxWidth="960px" marginTop="100px">
+          <Flex justify="space-between" marginBottom="30px" borderBottom="1px solid #ccc">
+            <Title children={"Todo List"} />
+            <ButtonWrapper />
+          </Flex>
           <Masonry
             breakpointCols={3}
             className="my-masonry-grid"
