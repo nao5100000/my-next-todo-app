@@ -1,4 +1,4 @@
-import { Box, Container, Text, HStack, IconButton } from "@chakra-ui/react";
+import { Box, Container, Text, HStack, Link } from "@chakra-ui/react";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import SearchForm from "../molucules/SearchForm";
 
@@ -20,12 +20,9 @@ const Header = () => {
             color="White"
           >
             <Box display="flex" alignItems="center" justifyContent="flex-start">
-              <IconButton
-                colorScheme="transparant"
-                aria-label="Search database"
-                icon={<BsFillHouseDoorFill />}
-                fontSize="1.5rem"
-              />
+              <Link href="/">
+                <BsFillHouseDoorFill fontSize="1.5rem" />
+              </Link>
               <Text fontSize="1.5rem" fontWeight="bold" marginLeft="10px">
                 Todo app
               </Text>

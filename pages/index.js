@@ -1,4 +1,5 @@
 import { Container, Flex } from '@chakra-ui/react'
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../src/atoms/text/Title'
