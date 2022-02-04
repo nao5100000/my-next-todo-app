@@ -10,7 +10,7 @@ const NewButton = () => {
       aria-label="Search database"
       icon={<BsFillPenFill />}
       borderRadius="50%"
-      onClick={() => router.replace("/NewTodo/")}
+      onClick={() => router.replace("/NewTodo/")} 
     />
   );
 };

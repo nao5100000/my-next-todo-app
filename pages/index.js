@@ -8,6 +8,7 @@ import TodoItem from '../src/organisms/TodoItem'
 import styles from '../styles/Home.module.css'
 import Masonry from 'react-masonry-css'
 import ButtonWrapper from '../src/molucules/ButtonWrapper'
+import SortSelect from '../src/atoms/SortSelect'
 
 export default function Home() {
   return (

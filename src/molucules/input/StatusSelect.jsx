@@ -9,7 +9,7 @@ const StatusSelect = () => {
         <Select placeholder="進捗状況">
           <option value="option1">未着手</option>
           <option value="option2">進行中</option>
-          <option value="option3"></option>
+          <option value="option3">完了</option>
         </Select>
       </Box>
     </>
