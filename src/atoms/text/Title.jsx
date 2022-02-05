@@ -8,6 +8,7 @@ const Title = ({ children }) => {
         fontWeight="bold"
         fontSize="2.1rem"
         marginBottom="30px"
+        w="100%"
       >
         {children}
       </Text>

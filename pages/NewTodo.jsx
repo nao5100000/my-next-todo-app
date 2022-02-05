@@ -19,7 +19,12 @@ const NewTodo = () => {
       </Head>
       <main>
         <Header />
-        <Container maxWidth="800px" marginTop="100px" marginBottom="90px">
+        <Container
+          maxWidth="800px"
+          width="90%"
+          marginTop="100px"
+          marginBottom="90px"
+        >
           <Title children="New Todo" />
           <TitleInput />
           <DetailTextarea />
