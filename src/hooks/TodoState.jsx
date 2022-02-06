@@ -1,10 +1,12 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
+import moment from "moment";
+
 const { persistAtom } = recoilPersist();
 
 export const todoState = atom({
-  key: "todoState",
+  key: "todo",
   default: [],
   effects_UNSTABLE: [persistAtom],
 });

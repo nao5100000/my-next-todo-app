@@ -55,6 +55,7 @@ const DetailTodo = () => {
           </Box>
           <CommentItem />
         </Container>
+
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent borderRadius="10px">

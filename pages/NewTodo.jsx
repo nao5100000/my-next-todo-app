@@ -1,7 +1,9 @@
+import { useRecoilState } from "recoil";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../src/organisms/Header";
+import { todoState, dateState } from "../src/hooks/TodoState";
 import { Container } from "@chakra-ui/react";
 import TitleInput from "../src/molucules/input/TitleInput";
 import DetailTextarea from "../src/molucules/input/DetailTextarea";
@@ -10,6 +12,8 @@ import RadioSelectWrapper from "../src/organisms/RadioSelectWrapper";
 import DatePicker from "../src/molucules/DatePicker";
 
 const NewTodo = () => {
+  const [todo, setTodo] = useRecoilState(todoState);
+
   return (
     <>
       <Head>
