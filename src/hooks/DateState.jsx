@@ -1,10 +1,10 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
-
+import moment from "moment";
 const { persistAtom } = recoilPersist();
 
-export const todoState = atom({
-  key: "todo",
-  default: [],
+export const dateState = atom({
+  key: "date",
+  default: moment().format("YYYYMMDDHHmmss"),
   effects_UNSTABLE: [persistAtom],
 });

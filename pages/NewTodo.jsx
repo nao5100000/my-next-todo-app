@@ -1,19 +1,42 @@
+import { useState } from "react";
 import { useRecoilState } from "recoil";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../src/organisms/Header";
-import { todoState, dateState } from "../src/hooks/TodoState";
+import { todoState } from "../src/hooks/TodoState";
 import { Container } from "@chakra-ui/react";
 import TitleInput from "../src/molucules/input/TitleInput";
 import DetailTextarea from "../src/molucules/input/DetailTextarea";
 import Title from "../src/atoms/text/Title";
 import RadioSelectWrapper from "../src/organisms/RadioSelectWrapper";
 import DatePicker from "../src/molucules/DatePicker";
+import CreateButton from "../src/atoms/button/CreateButton";
 
 const NewTodo = () => {
-  const [todo, setTodo] = useRecoilState(todoState);
+  const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
+  const [priority, setPriority] = useState("");
+  const [status, setStatus] = useState("");
 
+  // createButtonを押した際の機能
+  const [todos, setTodos] = useRecoilState(todoState);
+  const router = useRouter();
+  const handleCreateTodo = () => {
+    const newTodos = [
+      {
+        title,
+        details,
+        priority,
+        status,
+        date,
+      },
+      ...todos,
+    ];
+    setTodos(newTodos);
+    router.push("/");
+  };
   return (
     <>
       <Head>
@@ -30,10 +53,11 @@ const NewTodo = () => {
           marginBottom="90px"
         >
           <Title children="New Todo" />
-          <TitleInput />
-          <DetailTextarea />
+          <TitleInput setTitle={setTitle} title={title} />
+          <DetailTextarea setDetails={setDetails} details={details} />
           <RadioSelectWrapper />
           <DatePicker />
+          <CreateButton onClick={handleCreateTodo} />
         </Container>
       </main>
       <footer className={styles.footer}>

@@ -1,7 +1,8 @@
 import { Box, Textarea } from "@chakra-ui/react";
 import SubTitle from "../../atoms/text/SubTitle";
 
-const DetailTextarea = () => {
+const DetailTextarea = (props) => {
+  const { details, setDetails } = props;
   return (
     <>
       <Box marginBottom="30px">
