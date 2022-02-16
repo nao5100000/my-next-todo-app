@@ -1,5 +1,6 @@
 import { Container, Flex } from '@chakra-ui/react'
-
+import { useRecoilValue } from "recoil";
+import { todoState } from "../src/hooks/TodoState";
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../src/atoms/text/Title'
@@ -11,6 +12,7 @@ import ButtonWrapper from '../src/molucules/ButtonWrapper'
 import SortSelect from '../src/atoms/SortSelect'
 
 export default function Home() {
+  const todos = useRecoilValue(todoState);
   return (
     <div className={styles.container}>
       <Head>
@@ -31,8 +33,11 @@ export default function Home() {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
             {/* array of JSX items */}
-            <TodoItem />
-            <TodoItem />
+            {
+              todos.map((todo, index) => (
+                <TodoItem key={index} todoTitle={todo.title} todoDetails={todo.details} todoPriority={todo.priority} />
+              ))
+            }
           </Masonry>
         </Container>
       </main>

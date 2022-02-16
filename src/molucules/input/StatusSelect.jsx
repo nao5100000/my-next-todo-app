@@ -1,7 +1,7 @@
 import { Select, Box } from "@chakra-ui/react";
 import SubTitle from "../../atoms/text/SubTitle";
 
-const StatusSelect = () => {
+const StatusSelect = ({ status, setStatus }) => {
   return (
     <>
       <Box w="47%">

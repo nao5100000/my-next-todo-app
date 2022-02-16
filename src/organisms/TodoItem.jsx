@@ -2,7 +2,9 @@ import { Text, Box, Tag } from "@chakra-ui/react";
 import DeleteButton from "../atoms/button/DeleteButton";
 import TagWrapper from "../molucules/TagWrapper";
 
-const TodoItem = () => {
+const TodoItem = (props) => {
+  const { todoTitle, todoDetails, todoPriority } = props;
+
   return (
     <Box
       w="100%"
@@ -23,12 +25,12 @@ const TodoItem = () => {
         paddingBottom="10px"
         borderBottom="1px solid #718096"
       >
-        ランディングページの作り方
+        {todoTitle}
       </Text>
       <Box fontSize=".8rem" maxHeight="300px" overflow="hidden">
-        テキストテキストテキスト
+        {todoDetails}
       </Box>
-      <TagWrapper />
+      <TagWrapper todoPriority={todoPriority} />
     </Box>
   );
 };

@@ -1,7 +1,8 @@
 import { Box, Input } from "@chakra-ui/react";
 import SubTitle from "../../atoms/text/SubTitle";
 
-const TitleInput = () => {
+const TitleInput = (props) => {
+  const { title, setTitle } = props;
   return (
     <>
       <Box marginBottom="30px">
@@ -13,6 +14,8 @@ const TitleInput = () => {
           bg="White"
           boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
           bg="#f7f7f7"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </Box>
     </>

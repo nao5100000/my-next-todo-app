@@ -37,6 +37,7 @@ const NewTodo = () => {
     setTodos(newTodos);
     router.push("/");
   };
+
   return (
     <>
       <Head>
@@ -55,9 +56,14 @@ const NewTodo = () => {
           <Title children="New Todo" />
           <TitleInput setTitle={setTitle} title={title} />
           <DetailTextarea setDetails={setDetails} details={details} />
-          <RadioSelectWrapper />
+          <RadioSelectWrapper
+            setPriority={setPriority}
+            priority={priority}
+            setStatus={setStatus}
+            status={status}
+          />
           <DatePicker />
-          <CreateButton onClick={handleCreateTodo} />
+          <CreateButton handleCreateTodo={handleCreateTodo} />
         </Container>
       </main>
       <footer className={styles.footer}>

@@ -12,6 +12,8 @@ const DetailTextarea = (props) => {
           minHeight="250px"
           boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
           bg="#f7f7f7"
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
         />
       </Box>
     </>
