@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Text, Box, Tag } from "@chakra-ui/react";
 import DeleteButton from "../atoms/button/DeleteButton";
 import TagWrapper from "../molucules/TagWrapper";
 
 const TodoItem = (props) => {
-  const { todoTitle, todoDetails, todoPriority } = props;
-
+  const { todoTitle, todoDetails, todoPriority, todoStatus } = props;
+  const [hover, setHover] = useState(false);
   return (
     <Box
       w="100%"
@@ -14,10 +15,15 @@ const TodoItem = (props) => {
       position="relative"
       borderRadius="5px"
       boxShadow=" 2px 2px 4px rgba(0,0,0,.1)"
+      cursor="pointer"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      <Box position="absolute" right="-10px" top="-10px">
-        <DeleteButton />
-      </Box>
+      {hover && (
+        <Box position="absolute" right="-10px" top="-10px">
+          <DeleteButton />
+        </Box>
+      )}
       <Text
         fontSize="1rem"
         fontWeight="600"
@@ -30,7 +36,7 @@ const TodoItem = (props) => {
       <Box fontSize=".8rem" maxHeight="300px" overflow="hidden">
         {todoDetails}
       </Box>
-      <TagWrapper todoPriority={todoPriority} />
+      <TagWrapper todoPriority={todoPriority} todoStatus={todoStatus} />
     </Box>
   );
 };
