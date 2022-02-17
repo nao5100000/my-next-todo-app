@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../src/organisms/Header";
 import { todoState } from "../src/hooks/TodoState";
-import { Container } from "@chakra-ui/react";
+import { Text, Container } from "@chakra-ui/react";
 import TitleInput from "../src/molucules/input/TitleInput";
 import DetailTextarea from "../src/molucules/input/DetailTextarea";
 import Title from "../src/atoms/text/Title";
@@ -20,22 +20,45 @@ const NewTodo = () => {
   const [priority, setPriority] = useState("");
   const [status, setStatus] = useState("");
 
+  // 空欄の際のエラーステート
+  const [formError, setFormError] = useState({});
   // createButtonを押した際の機能
   const [todos, setTodos] = useRecoilState(todoState);
-  const router = useRouter();
+  const validate = () => {
+    const errors = {};
+    if (!title) {
+      errors.title = "タイトルが入力されていません";
+    }
+    if (!details) {
+      errors.details = "詳細が入力されていません";
+    }
+    if (!priority) {
+      errors.priority = "優先度がチェックされていません";
+    }
+    if (!status) {
+      errors.status = "進捗状況が選択されていません";
+    }
+    return errors;
+  };
+
   const handleCreateTodo = () => {
-    const newTodos = [
-      {
-        title,
-        details,
-        priority,
-        status,
-        date,
-      },
-      ...todos,
-    ];
-    setTodos(newTodos);
-    router.push("/");
+    if (!title || !details || !priority || !status) {
+      setFormError(validate());
+    } else {
+      const router = useRouter();
+      const newTodos = [
+        {
+          title,
+          details,
+          priority,
+          status,
+          date,
+        },
+        ...todos,
+      ];
+      setTodos(newTodos);
+      router.push("/");
+    }
   };
 
   return (
@@ -54,13 +77,16 @@ const NewTodo = () => {
           marginBottom="90px"
         >
           <Title children="New Todo" />
+          <Text color="red">{formError.title}</Text>
           <TitleInput setTitle={setTitle} title={title} />
+          <Text color="red">{formError.details}</Text>
           <DetailTextarea setDetails={setDetails} details={details} />
           <RadioSelectWrapper
             setPriority={setPriority}
             priority={priority}
             setStatus={setStatus}
             status={status}
+            formError={formError}
           />
           <DatePicker />
           <CreateButton handleCreateTodo={handleCreateTodo} />

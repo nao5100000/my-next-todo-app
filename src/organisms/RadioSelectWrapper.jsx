@@ -3,11 +3,19 @@ import RadioPriority from "../molucules/input/RadioPriority";
 import StatusSelect from "../molucules/input/StatusSelect";
 
 const RadioSelectWrapper = (props) => {
-  const { priority, setPriority, status, setStatus } = props;
+  const { priority, setPriority, status, setStatus, formError } = props;
   return (
     <HStack justify="space-between" marginBottom="30px">
-      <RadioPriority priority={priority} setPriority={setPriority} />
-      <StatusSelect status={status} setStatus={setStatus} />
+      <RadioPriority
+        priority={priority}
+        setPriority={setPriority}
+        formError={formError}
+      />
+      <StatusSelect
+        status={status}
+        setStatus={setStatus}
+        formError={formError}
+      />
     </HStack>
   );
 };
