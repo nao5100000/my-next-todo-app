@@ -1,28 +1,15 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Text,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Input,
-  Textarea,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Container, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import CommentButton from "../src/atoms/button/CommentButton";
 import DetailTodoTitle from "../src/atoms/text/DetailTodoTitle";
-import SubTitle from "../src/atoms/text/SubTitle";
 import Title from "../src/atoms/text/Title";
 import CommentItem from "../src/molucules/CommentItem";
+import CommentModal from "../src/molucules/CommentModal";
 import Header from "../src/organisms/Header";
 
 const DetailTodo = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
   return (
     <>
       <main>
@@ -44,52 +31,16 @@ const DetailTodo = () => {
           <Box w="70%">
             <Box marginBottom="36px">
               <DetailTodoTitle children="Title" />
-              <Text padding="0 20px">タイトルが入ります</Text>
+              <Text padding="0 20px">{router.query.title}</Text>
             </Box>
             <Box>
               <DetailTodoTitle children="Details" />
-              <Text padding="0 20px">
-                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-              </Text>
+              <Text padding="0 20px">{router.query.details}</Text>
             </Box>
           </Box>
           <CommentItem />
         </Container>
-
-        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent borderRadius="10px">
-            <ModalCloseButton />
-            <ModalBody padding="30px">
-              <Box marginBottom="30px">
-                <SubTitle children="name" />
-                <Input placeholder="山田 太郎" h="50px" />
-              </Box>
-              <Box>
-                <SubTitle children="comment" />
-                <Textarea
-                  placeholder="コメントを入れてください"
-                  minHeight="180px"
-                />
-              </Box>
-            </ModalBody>
-            <ModalFooter padding="0 0 30px">
-              <Button
-                variant="ghost"
-                maxWidth="300px"
-                width="60%"
-                bg="teal.400"
-                color="white"
-                borderRadius="50px"
-                margin="0 auto"
-                transition="background-color .3s ease-out"
-                _hover={{ background: "teal.200" }}
-              >
-                Create
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
+        <CommentModal isOpen={isOpen} onClose={onClose} />
       </main>
     </>
   );

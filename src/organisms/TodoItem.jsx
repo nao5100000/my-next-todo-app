@@ -2,10 +2,30 @@ import { useState } from "react";
 import { Text, Box, Tag } from "@chakra-ui/react";
 import DeleteButton from "../atoms/button/DeleteButton";
 import TagWrapper from "../molucules/TagWrapper";
+import { useRouter } from "next/router";
 
 const TodoItem = (props) => {
-  const { todoTitle, todoDetails, todoPriority, todoStatus, todoId } = props;
+  const {
+    todoTitle,
+    todoDetails,
+    todoPriority,
+    todoStatus,
+    todoId,
+    todoSingle,
+  } = props;
   const [hover, setHover] = useState(false);
+
+  // todoItemからDetailsTodoへの遷移機能
+  const router = useRouter();
+  const newTodoRouting = (target) => {
+    router.push({
+      pathname: "DetailTodo",
+      query: {
+        title: target.title,
+        details: target.details,
+      },
+    });
+  };
   return (
     <Box
       w="100%"
@@ -18,6 +38,7 @@ const TodoItem = (props) => {
       cursor="pointer"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={() => newTodoRouting(todoSingle)}
     >
       {hover && (
         <Box position="absolute" right="-10px" top="-10px">

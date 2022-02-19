@@ -32,11 +32,11 @@ export default function Home() {
             breakpointCols={3}
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
-            {/* array of JSX items */}
             {
               todos.map((todo) => (
                 <TodoItem
                   key={todo.id}
+                  todoSingle={todo}
                   todoTitle={todo.title}
                   todoDetails={todo.details}
                   todoPriority={todo.priority}
