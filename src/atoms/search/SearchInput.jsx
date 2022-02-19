@@ -16,5 +16,4 @@ const SearchInput = () => {
     </InputGroup>
   );
 };
-
 export default SearchInput;

@@ -1,4 +1,6 @@
 import { Box, Container, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { commentState } from "../src/hooks/commentState";
+import { useRecoilValue } from "recoil";
 import { useRouter } from "next/router";
 import CommentButton from "../src/atoms/button/CommentButton";
 import DetailTodoTitle from "../src/atoms/text/DetailTodoTitle";
@@ -10,6 +12,8 @@ import Header from "../src/organisms/Header";
 const DetailTodo = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+
+  const comments = useRecoilValue(commentState);
   return (
     <>
       <main>
@@ -38,7 +42,11 @@ const DetailTodo = () => {
               <Text padding="0 20px">{router.query.details}</Text>
             </Box>
           </Box>
-          <CommentItem />
+          <Box w="25%">
+            {comments.map((comment, index) => (
+              <CommentItem key={index} comment={comment} />
+            ))}
+          </Box>
         </Container>
         <CommentModal isOpen={isOpen} onClose={onClose} />
       </main>
