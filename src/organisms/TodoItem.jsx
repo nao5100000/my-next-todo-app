@@ -4,7 +4,7 @@ import DeleteButton from "../atoms/button/DeleteButton";
 import TagWrapper from "../molucules/TagWrapper";
 
 const TodoItem = (props) => {
-  const { todoTitle, todoDetails, todoPriority, todoStatus } = props;
+  const { todoTitle, todoDetails, todoPriority, todoStatus, todoId } = props;
   const [hover, setHover] = useState(false);
   return (
     <Box
@@ -21,7 +21,7 @@ const TodoItem = (props) => {
     >
       {hover && (
         <Box position="absolute" right="-10px" top="-10px">
-          <DeleteButton />
+          <DeleteButton todoId={todoId} />
         </Box>
       )}
       <Text

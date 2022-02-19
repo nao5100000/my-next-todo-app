@@ -13,6 +13,7 @@ import SortSelect from '../src/atoms/SortSelect'
 
 export default function Home() {
   const todos = useRecoilValue(todoState);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,13 +34,14 @@ export default function Home() {
             columnClassName="my-masonry-grid_column">
             {/* array of JSX items */}
             {
-              todos.map((todo, index) => (
+              todos.map((todo) => (
                 <TodoItem
-                  key={index}
+                  key={todo.id}
                   todoTitle={todo.title}
                   todoDetails={todo.details}
                   todoPriority={todo.priority}
                   todoStatus={todo.status}
+                  todoId={todo.id}
                 />
               ))
             }

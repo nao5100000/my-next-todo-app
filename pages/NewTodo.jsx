@@ -41,13 +41,14 @@ const NewTodo = () => {
     return errors;
   };
 
+  const router = useRouter();
   const handleCreateTodo = () => {
     if (!title || !details || !priority || !status) {
       setFormError(validate());
     } else {
-      const router = useRouter();
       const newTodos = [
         {
+          id: new Date().getTime(),
           title,
           details,
           priority,
