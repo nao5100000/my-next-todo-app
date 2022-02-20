@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { DragHandleIcon } from "@chakra-ui/icons";
 import { Box, HStack, Text, List, ListItem } from "@chakra-ui/react";
 
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, onOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [comments, setComments] = useRecoilState(commentState);
@@ -13,6 +13,10 @@ const CommentItem = ({ comment }) => {
     setComments(newComments);
   };
 
+  // const editHandle = (id) => {
+  //   const updatesComments = [...comments];
+
+  // };
   return (
     <Box
       bg="teal.50"
@@ -52,6 +56,7 @@ const CommentItem = ({ comment }) => {
               marginBottom="3px"
               cursor="pointer"
               _hover={{ color: "blue.300" }}
+              onClick={() => onOpen()}
             >
               編集
             </ListItem>

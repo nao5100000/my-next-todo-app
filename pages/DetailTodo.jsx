@@ -44,7 +44,7 @@ const DetailTodo = () => {
           </Box>
           <Box w="25%">
             {comments.map((comment, index) => (
-              <CommentItem key={index} comment={comment} />
+              <CommentItem key={index} comment={comment} onOpen={onOpen} />
             ))}
           </Box>
         </Container>
