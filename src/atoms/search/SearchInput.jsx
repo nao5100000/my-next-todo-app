@@ -1,7 +1,10 @@
 import { InputGroup, InputRightElement, Input } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
 
-const SearchInput = ({ onInput }) => {
+const SearchInput = ({ updateSearchKeyword }) => {
+  const onInput = (e) => {
+    updateSearchKeyword(e.target.value);
+  };
   return (
     <InputGroup
       bg="blue.500"

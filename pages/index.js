@@ -14,15 +14,21 @@ import escapeStringRegexp from "escape-string-regexp";
 
 export default function Home() {
   const todos = useRecoilValue(todoState);
-  const [searchKeyword, updateSearchKeyword] = useState("");
-  const onInput = (e) => {
-    updateSearchKeyword(e.target.value)
-  }
 
-  const filterdTodos = todos.filter((item) => {
+
+  //検索キーワード検索・ステータス検索
+  const [searchKeyword, updateSearchKeyword] = useState("");
+  const [searchStatus, setSearchStatus] = useState("");
+  const [searchPriority, setSearchPriority] = useState("");
+
+  let filterdTodos = todos.filter((item) => {
     const escapedText = escapeStringRegexp(searchKeyword.toLowerCase());
-    return new RegExp(escapedText).test(item.title)
+    const escapedStatus = escapeStringRegexp(searchStatus);
+    const escapedPriority = escapeStringRegexp(searchPriority);
+    return new RegExp(escapedText).test(item.title) && new RegExp(escapedStatus).test(item.status) && new RegExp(escapedPriority).test(item.priority);
   })
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -31,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header onInput={onInput} />
+        <Header updateSearchKeyword={updateSearchKeyword} setSearchStatus={setSearchStatus} setSearchPriority={setSearchPriority} />
         <Container maxWidth="960px" marginTop="100px">
           <Flex justify="space-between" marginBottom="30px" borderBottom="1px solid #ccc">
             <Title children={"Todo List"} />

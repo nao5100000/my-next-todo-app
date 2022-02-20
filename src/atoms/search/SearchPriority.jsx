@@ -1,6 +1,9 @@
 import { Select } from "@chakra-ui/react";
 
-const SearchPriority = () => {
+const SearchPriority = ({ setSearchPriority }) => {
+  const handleSearchPriority = (e) => {
+    setSearchPriority(e.target.value);
+  };
   return (
     <Select
       placeholder="------"
@@ -10,10 +13,11 @@ const SearchPriority = () => {
       borderRadius="3px"
       fontSize=".9rem"
       boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
+      onChange={handleSearchPriority}
     >
       <option value="low">Low</option>
       <option value="middle">Middle</option>
-      <option value="heigh">High</option>
+      <option value="high">High</option>
     </Select>
   );
 };
