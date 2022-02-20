@@ -2,7 +2,7 @@ import { Box, Container, Text, HStack, Link } from "@chakra-ui/react";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import SearchForm from "../molucules/SearchForm";
 
-const Header = () => {
+const Header = ({ onInput }) => {
   return (
     <>
       <Box
@@ -27,7 +27,7 @@ const Header = () => {
                 Todo app
               </Text>
             </Box>
-            <SearchForm />
+            <SearchForm onInput={onInput} />
             <Text fontSize=".9rem">2022/01/01</Text>
           </HStack>
         </Container>

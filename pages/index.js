@@ -1,6 +1,7 @@
 import { Container, Flex } from '@chakra-ui/react'
 import { useRecoilValue } from "recoil";
 import { todoState } from "../src/hooks/TodoState";
+import { useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../src/atoms/text/Title'
@@ -9,11 +10,19 @@ import TodoItem from '../src/organisms/TodoItem'
 import styles from '../styles/Home.module.css'
 import Masonry from 'react-masonry-css'
 import ButtonWrapper from '../src/molucules/ButtonWrapper'
-import SortSelect from '../src/atoms/SortSelect'
+import escapeStringRegexp from "escape-string-regexp";
 
 export default function Home() {
   const todos = useRecoilValue(todoState);
+  const [searchKeyword, updateSearchKeyword] = useState("");
+  const onInput = (e) => {
+    updateSearchKeyword(e.target.value)
+  }
 
+  const filterdTodos = todos.filter((item) => {
+    const escapedText = escapeStringRegexp(searchKeyword.toLowerCase());
+    return new RegExp(escapedText).test(item.title)
+  })
   return (
     <div className={styles.container}>
       <Head>
@@ -22,7 +31,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header />
+        <Header onInput={onInput} />
         <Container maxWidth="960px" marginTop="100px">
           <Flex justify="space-between" marginBottom="30px" borderBottom="1px solid #ccc">
             <Title children={"Todo List"} />
@@ -33,15 +42,15 @@ export default function Home() {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
             {
-              todos.map((todo) => (
+              filterdTodos.map((item) => (
                 <TodoItem
-                  key={todo.id}
-                  todoSingle={todo}
-                  todoTitle={todo.title}
-                  todoDetails={todo.details}
-                  todoPriority={todo.priority}
-                  todoStatus={todo.status}
-                  todoId={todo.id}
+                  key={item.id}
+                  todoSingle={item}
+                  todoTitle={item.title}
+                  todoDetails={item.details}
+                  todoPriority={item.priority}
+                  todoStatus={item.status}
+                  todoId={item.id}
                 />
               ))
             }
