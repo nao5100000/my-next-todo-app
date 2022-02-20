@@ -3,6 +3,7 @@ import { commentState } from "../hooks/commentState";
 import { useRecoilState } from "recoil";
 import { DragHandleIcon } from "@chakra-ui/icons";
 import { Box, HStack, Text, List, ListItem } from "@chakra-ui/react";
+import { createDate } from "../hooks/date";
 
 const CommentItem = ({ comment, onOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +16,8 @@ const CommentItem = ({ comment, onOpen }) => {
 
   // const editHandle = (id) => {
   //   const updatesComments = [...comments];
-
   // };
+
   return (
     <Box
       bg="teal.50"
@@ -72,7 +73,7 @@ const CommentItem = ({ comment, onOpen }) => {
       </HStack>
       <Text fontSize=".8rem">{comment.text}</Text>
       <Text fontSize=".7rem" position="absolute" right="20px" bottom="20px">
-        2022/01/01
+        {comment.created_date}
       </Text>
     </Box>
   );

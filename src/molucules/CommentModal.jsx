@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import SubTitle from "../atoms/text/SubTitle";
 import { commentState } from "../hooks/commentState";
+import { createDate } from "../hooks/date";
 
 const CommentModal = ({ isOpen, onClose }) => {
   const [name, setName] = useState("");
@@ -41,6 +42,7 @@ const CommentModal = ({ isOpen, onClose }) => {
           id: new Date().getTime(),
           name,
           text,
+          created_date: createDate(),
         },
         ...comments,
       ];
