@@ -12,6 +12,8 @@ const CreateButton = ({ handleCreateTodo }) => {
       fontSize="1.2rem"
       height="50px"
       onClick={handleCreateTodo}
+      transition="background-color .3s ease-in-out"
+      _hover={{ bg: "blue.200" }}
     >
       create!
     </Button>

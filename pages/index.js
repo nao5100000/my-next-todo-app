@@ -15,7 +15,6 @@ import escapeStringRegexp from "escape-string-regexp";
 export default function Home() {
   const todos = useRecoilValue(todoState);
 
-
   //検索キーワード検索・ステータス検索
   const [searchKeyword, updateSearchKeyword] = useState("");
   const [searchStatus, setSearchStatus] = useState("");
@@ -28,6 +27,7 @@ export default function Home() {
     return new RegExp(escapedText).test(item.title) && new RegExp(escapedStatus).test(item.status) && new RegExp(escapedPriority).test(item.priority);
   })
 
+  const isIndex = true;
 
   return (
     <div className={styles.container}>
@@ -37,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header updateSearchKeyword={updateSearchKeyword} setSearchStatus={setSearchStatus} setSearchPriority={setSearchPriority} />
+        <Header updateSearchKeyword={updateSearchKeyword} setSearchStatus={setSearchStatus} setSearchPriority={setSearchPriority} isIndex={isIndex} />
         <Container maxWidth="960px" marginTop="100px">
           <Flex justify="space-between" marginBottom="30px" borderBottom="1px solid #ccc">
             <Title children={"Todo List"} />
@@ -52,11 +52,6 @@ export default function Home() {
                 <TodoItem
                   key={item.id}
                   todoSingle={item}
-                  todoTitle={item.title}
-                  todoDetails={item.details}
-                  todoPriority={item.priority}
-                  todoStatus={item.status}
-                  todoId={item.id}
                 />
               ))
             }

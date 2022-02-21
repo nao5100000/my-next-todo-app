@@ -10,7 +10,7 @@ const TrashButton = () => {
       aria-label="Search database"
       icon={<FaTrashRestoreAlt />}
       borderRadius="50%"
-      onClick={() => router.replace("/TrashTodo/")}
+      onClick={() => router.push("/TrashTodo/")}
     />
   );
 };

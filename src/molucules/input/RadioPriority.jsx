@@ -12,25 +12,13 @@ const RadioPriority = ({ priority, setPriority, formError }) => {
         <Text color="red">{formError.priority}</Text>
         <RadioGroup>
           <Stack direction="row" spacing={8}>
-            <Radio
-              value="low"
-              colorScheme="cyan.400"
-              onChange={radioChangeValue}
-            >
+            <Radio value="low" onChange={radioChangeValue}>
               Low
             </Radio>
-            <Radio
-              value="middle"
-              colorScheme="cyan.400"
-              onChange={radioChangeValue}
-            >
+            <Radio value="middle" onChange={radioChangeValue}>
               Middle
             </Radio>
-            <Radio
-              value="high"
-              colorScheme="cyan.400"
-              onChange={radioChangeValue}
-            >
+            <Radio value="high" onChange={radioChangeValue}>
               High
             </Radio>
           </Stack>

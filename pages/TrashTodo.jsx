@@ -1,9 +1,11 @@
+import { useRecoilValue } from "recoil";
+import { deleteState } from "../src/hooks/DeleteState";
 import { Box, Container } from "@chakra-ui/react";
 import { BiTrash } from "react-icons/bi";
 import Masonry from "react-masonry-css";
 import Title from "../src/atoms/text/Title";
 import Header from "../src/organisms/Header";
-import TodoItem from "../src/organisms/TodoItem";
+import DeleteTodoItem from "../src/organisms/DeleteTodoItem";
 
 const TrashTodo = () => {
   const iconStyle = {
@@ -11,6 +13,9 @@ const TrashTodo = () => {
     marginLeft: "10px",
     color: "blue.400",
   };
+
+  const deleteTodos = useRecoilValue(deleteState);
+
   return (
     <>
       <main>
@@ -30,8 +35,9 @@ const TrashTodo = () => {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >
-            <TodoItem />
-            <TodoItem />
+            {deleteTodos.map((item) => (
+              <DeleteTodoItem key={item.id} item={item} />
+            ))}
           </Masonry>
         </Container>
       </main>
