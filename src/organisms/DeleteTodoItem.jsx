@@ -1,16 +1,14 @@
+import { useState } from "react";
 import { Text, Box } from "@chakra-ui/react";
 import TagWrapper from "../molucules/TagWrapper";
 
 const itemItem = (props) => {
   const { item } = props;
-  {
-    console.log(item.title);
-  }
   return (
     <Box
       w="100%"
       padding="20px"
-      bg="red.100"
+      bg="gray.200"
       minHeight="180px"
       position="relative"
       borderRadius="5px"

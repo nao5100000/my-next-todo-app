@@ -11,12 +11,11 @@ const DeleteButton = ({ todoId }) => {
   const handleOnRemove = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
-    console.log(todos);
 
     const deleteTodoItem = todos.filter((todo) => todo.id === id);
     const newDeleteTodos = [...deleteTodoItem, ...deleteTodos];
     setDeleteTodos(newDeleteTodos);
-    console.log(deleteTodoItem);
+    console.log(newDeleteTodos);
   };
 
   return (

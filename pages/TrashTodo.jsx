@@ -1,4 +1,4 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { deleteState } from "../src/hooks/DeleteState";
 import { Box, Container } from "@chakra-ui/react";
 import { BiTrash } from "react-icons/bi";
@@ -14,8 +14,11 @@ const TrashTodo = () => {
     color: "blue.400",
   };
 
-  const deleteTodos = useRecoilValue(deleteState);
+  const [deleteTodos, setDeleteTodos] = useRecoilState(deleteState);
 
+  const handleDelete = () => {
+    setDeleteTodos();
+  };
   return (
     <>
       <main>
@@ -28,14 +31,19 @@ const TrashTodo = () => {
         >
           <Box display="flex" alignItems="center">
             <Title children="Trash" />
-            <BiTrash fontSize="1.8rem" style={iconStyle} />
+            <BiTrash
+              fontSize="1.8rem"
+              style={iconStyle}
+              cursor="pointer"
+              onClick={handleDelete}
+            />
           </Box>
           <Masonry
             breakpointCols={3}
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
           >
-            {deleteTodos.map((item) => (
+            {deleteTodos?.map((item) => (
               <DeleteTodoItem key={item.id} item={item} />
             ))}
           </Masonry>

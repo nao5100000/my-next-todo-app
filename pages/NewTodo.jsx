@@ -54,6 +54,7 @@ const NewTodo = () => {
           priority,
           status,
           date,
+          isChecked: false,
         },
         ...todos,
       ];
