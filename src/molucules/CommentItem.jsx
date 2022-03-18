@@ -5,7 +5,12 @@ import { DragHandleIcon } from "@chakra-ui/icons";
 import { Box, HStack, Text, List, ListItem } from "@chakra-ui/react";
 import { createDate } from "../hooks/date";
 
-const CommentItem = ({ comment, onOpen }) => {
+const CommentItem = ({
+  comment,
+  onOpen,
+  setCommentEditBoolean,
+  handleCommentEdit,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [comments, setComments] = useRecoilState(commentState);
@@ -57,7 +62,11 @@ const CommentItem = ({ comment, onOpen }) => {
               marginBottom="3px"
               cursor="pointer"
               _hover={{ color: "blue.300" }}
-              onClick={() => onOpen()}
+              onClick={() => {
+                onOpen();
+                setCommentEditBoolean(true);
+                handleCommentEdit(comment.id);
+              }}
             >
               編集
             </ListItem>

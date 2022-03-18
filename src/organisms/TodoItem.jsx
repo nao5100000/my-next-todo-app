@@ -14,8 +14,7 @@ const TodoItem = (props) => {
     router.push({
       pathname: "DetailTodo",
       query: {
-        title: target.title,
-        details: target.details,
+        id: target.id,
       },
     });
   };
