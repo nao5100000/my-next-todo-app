@@ -18,11 +18,6 @@ const CommentItem = ({
     const newComments = comments.filter((item) => item.id !== id);
     setComments(newComments);
   };
-
-  // const editHandle = (id) => {
-  //   const updatesComments = [...comments];
-  // };
-
   return (
     <Box
       bg="teal.50"

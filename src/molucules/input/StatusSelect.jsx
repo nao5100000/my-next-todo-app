@@ -8,7 +8,7 @@ const StatusSelect = ({ setStatus, formError }) => {
   return (
     <>
       <Box w="47%">
-        <SubTitle children="進捗" height="55px" />
+        <SubTitle children="Statue" height="55px" />
         <Text color="red">{formError.status}</Text>
         <Select placeholder="進捗状況" onChange={selectChangeValue}>
           <option value="未着手">未着手</option>

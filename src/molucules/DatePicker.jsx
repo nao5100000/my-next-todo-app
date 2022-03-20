@@ -2,20 +2,15 @@ import moment from "moment";
 import { useState } from "react";
 import { SingleDatePicker } from "react-dates";
 import { CalendarIcon } from "@chakra-ui/icons";
-import { dateState } from "../hooks/DateState";
 
-// import "moment/locale/ja"; // 日本語ローカライズ
 import "moment/locale/ja"; // 日本語ローカライズ
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import SubTitle from "../atoms/text/SubTitle";
 import { Box, HStack } from "@chakra-ui/react";
-import { useRecoilState } from "recoil";
 
 // react-dates
-const DatePicker = () => {
-  const [date, setDate] = useState(moment);
-  //const [date, setDate] = useRecoilState(dateState);
+const DatePicker = ({ date, setDate }) => {
   const [focused, setFocused] = useState(false);
   return (
     <>

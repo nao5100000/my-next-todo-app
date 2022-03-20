@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
 import { Box, Container, Text, HStack, Link } from "@chakra-ui/react";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import SearchForm from "../molucules/SearchForm";
+import { createDate } from "../hooks/date";
 
 const Header = (props) => {
   const { updateSearchKeyword, setSearchStatus, setSearchPriority, isIndex } =
     props;
+
+  const [date, setDate] = useState(createDate());
+  useEffect(() => {
+    setInterval(() => {
+      setDate(createDate());
+    }, 1000);
+  }, [date]);
+
   return (
     <>
       <Box
@@ -41,7 +51,7 @@ const Header = (props) => {
                 setSearchPriority={setSearchPriority}
               />
             )}
-            <Text fontSize=".9rem">2022/01/01</Text>
+            <Text fontSize=".9rem">{date}</Text>
           </HStack>
         </Container>
       </Box>

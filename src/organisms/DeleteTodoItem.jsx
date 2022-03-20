@@ -1,9 +1,36 @@
 import { useState } from "react";
-import { Text, Box } from "@chakra-ui/react";
+import { useRecoilState } from "recoil";
+import { Text, Box, Checkbox } from "@chakra-ui/react";
+import { deleteState } from "../hooks/DeleteState";
 import TagWrapper from "../molucules/TagWrapper";
 
 const itemItem = (props) => {
   const { item } = props;
+
+  const [deleteTodos, setDeleteTodos] = useRecoilState(deleteState);
+
+  const handleCheckTrash = (id) => {
+    const targetDeleteTodo = [...deleteTodos].find((todo) => todo.id === id);
+    let newDeleteTodo = {};
+    if (targetDeleteTodo.isChecked) {
+      newDeleteTodo = {
+        ...targetDeleteTodo,
+        isChecked: false,
+      };
+    } else {
+      newDeleteTodo = {
+        ...targetDeleteTodo,
+        isChecked: true,
+      };
+    }
+    const updateDeleteTodos = [...deleteTodos];
+    updateDeleteTodos.map((item, index) => {
+      item.id === newDeleteTodo.id &&
+        updateDeleteTodos.splice(index, 1, newDeleteTodo);
+    });
+    setDeleteTodos(updateDeleteTodos);
+    console.log(deleteTodos);
+  };
   return (
     <Box
       w="100%"
@@ -17,6 +44,13 @@ const itemItem = (props) => {
       transition="all .3s ease-in-out"
       _hover={{ boxShadow: "3px 6px 12px rgb(0 0 0 / 10%)" }}
     >
+      <Checkbox
+        colorScheme="green"
+        position="absolute"
+        top="-10px"
+        left="-10px"
+        onChange={() => handleCheckTrash(item.id)}
+      />
       <Box>
         <Text
           fontSize="1rem"

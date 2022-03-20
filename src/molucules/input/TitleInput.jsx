@@ -6,12 +6,11 @@ const TitleInput = (props) => {
   return (
     <>
       <Box marginBottom="30px">
-        <SubTitle children="タイトル" />
+        <SubTitle children="Title" />
         <Input
           placeholder="タイトルを入力してください"
           borderRadius="3px"
           height="58px"
-          bg="White"
           boxShadow="1px 1px 3px 1px rgb(0 0 0 / 10%) inset"
           bg="#f7f7f7"
           value={title}

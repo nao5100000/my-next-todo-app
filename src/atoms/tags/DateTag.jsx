@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import { TimeIcon } from "@chakra-ui/icons";
 
-const DateTag = () => {
+const DateTag = ({ todoSingle }) => {
   return (
     <Box
       display="inline-block"

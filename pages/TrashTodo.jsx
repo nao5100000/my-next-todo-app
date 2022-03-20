@@ -17,7 +17,10 @@ const TrashTodo = () => {
   const [deleteTodos, setDeleteTodos] = useRecoilState(deleteState);
 
   const handleDelete = () => {
-    setDeleteTodos();
+    let newDeleteTodos = [...deleteTodos].filter(
+      (item) => item.isChecked === false
+    );
+    setDeleteTodos(newDeleteTodos);
   };
   return (
     <>
@@ -35,7 +38,7 @@ const TrashTodo = () => {
               fontSize="1.8rem"
               style={iconStyle}
               cursor="pointer"
-              onClick={handleDelete}
+              onClick={() => handleDelete()}
             />
           </Box>
           <Masonry

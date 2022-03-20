@@ -18,11 +18,24 @@ const TodoItem = (props) => {
       },
     });
   };
+
+  const bgColorChange = (priority) => {
+    let bgColor;
+    if (priority === "high") {
+      bgColor = "#FED7D7";
+    } else if (priority === "middle") {
+      bgColor = "#FEEBC8";
+    } else {
+      bgColor = "#BEE3F8";
+    }
+    return bgColor;
+  };
   return (
     <Box
       w="100%"
       padding="20px"
-      bg="red.100"
+      marginBottom="30px"
+      bg={bgColorChange(todoSingle.priority)}
       minHeight="180px"
       position="relative"
       borderRadius="5px"
@@ -56,10 +69,7 @@ const TodoItem = (props) => {
         >
           {todoSingle.details}
         </Box>
-        <TagWrapper
-          todoPriority={todoSingle.priority}
-          todoStatus={todoSingle.status}
-        />
+        <TagWrapper todoSingle={todoSingle} />
       </Box>
     </Box>
   );

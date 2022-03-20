@@ -15,7 +15,6 @@ const DeleteButton = ({ todoId }) => {
     const deleteTodoItem = todos.filter((todo) => todo.id === id);
     const newDeleteTodos = [...deleteTodoItem, ...deleteTodos];
     setDeleteTodos(newDeleteTodos);
-    console.log(newDeleteTodos);
   };
 
   return (

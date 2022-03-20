@@ -8,7 +8,7 @@ const RadioPriority = ({ priority, setPriority, formError }) => {
   return (
     <>
       <Box w="47%">
-        <SubTitle children="優先度" />
+        <SubTitle children="Priority" />
         <Text color="red">{formError.priority}</Text>
         <RadioGroup>
           <Stack direction="row" spacing={8}>

@@ -13,12 +13,15 @@ import Title from "../src/atoms/text/Title";
 import RadioSelectWrapper from "../src/organisms/RadioSelectWrapper";
 import DatePicker from "../src/molucules/DatePicker";
 import CreateButton from "../src/atoms/button/CreateButton";
+import moment from "moment";
+import "moment/locale/ja";
 
 const NewTodo = () => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [priority, setPriority] = useState("");
   const [status, setStatus] = useState("");
+  const [date, setDate] = useState(moment);
 
   // 空欄の際のエラーステート
   const [formError, setFormError] = useState({});
@@ -90,7 +93,7 @@ const NewTodo = () => {
             status={status}
             formError={formError}
           />
-          <DatePicker />
+          <DatePicker date={date} setDate={setDate} />
           <CreateButton handleCreateTodo={handleCreateTodo} />
         </Container>
       </main>
